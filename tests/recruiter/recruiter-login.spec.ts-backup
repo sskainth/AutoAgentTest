@@ -1,0 +1,29 @@
+import { expect } from '@playwright/test';
+import { test } from '../../src/fixtures/recruiter.fixture';
+
+test.describe('Gaddr Jobs recruiter login flow', () => {
+  test.beforeEach(async ({ recruiterProfile, loginPage }) => {
+    await loginPage.goto(recruiterProfile.recruiterloginUrl);
+  });
+
+  test('recruiter page shows login fields', async ({ loginPage }) => {
+    await expect(loginPage.emailInput).toBeVisible();
+    await expect(loginPage.passwordInput).toBeVisible();
+  });
+
+  test.only('recruiter can log in and see Recruiter Dashboard', async ({ recruiterProfile, loginPage }) => {
+    await loginPage.fillEmail(recruiterProfile.email);
+    await loginPage.fillPassword(recruiterProfile.password);
+    await loginPage.signIn();
+    //await expect(loginPage.page.locator('text=/Recruiter Dashboard/i')).toBeVisible();
+   // await page.waitForLoadState('networkidle');
+   //
+  // await page.getByRole('button', { name: 'Employer' }).click();await expect(loginPage.page.locator('text=Recruiter Dashboard')).toBeVisible();
+
+
+ //  await expect(page.getByRole('heading', { name: 'Recruiter Dashboard' })).toBeVisible();
+  // await expect(page.getByRole('button', { name: 'Employer' })).toBeVisible ();
+  });
+});
+
+
