@@ -1,11 +1,32 @@
 {
-  "name": "new-folder",
+  "name": "Autoagenttest",
   "version": "1.0.0",
-  "description": "",
+  "description": "End-to-end test automation for the Gaddr Jobs web app (Playwright + TypeScript, Page Object Model).",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:auth": "playwright test tests/auth",
+    "test:home": "playwright test tests/home",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:chromium": "playwright test --project=chromium",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen https://jobs.gaddr.com/",
+    "typecheck": "tsc --noEmit",
+    "install:browsers": "playwright install --with-deps"
+  
+  },
+  "keywords": ["playwright",
+    "typescript",
+    "e2e",
+    "automation",
+    "page-object-model"
+],
+  "author": "Shikta",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
